@@ -1,0 +1,72 @@
+*** Settings ***
+Library    AppiumLibrary
+Library    Collections
+Library    OperatingSystem
+
+*** Variables ***
+${REMOTE_URL}    http://127.0.0.1:4723/wd/hub
+${APP}    /path/to/your/app.apk
+${PLATFORM_VERSION}    11
+${DEVICE_NAME}    Live 4
+${AUTOMATION_NAME}    UiAutomator2
+${PACKAGE_NAME}    com.monystudio.detectorhiddendevices
+
+*** Test Cases ***
+Check App Launch Successfully
+    Open Application    https://127.0.0.1:4723/wd/hub 
+    ...    platformName=Android
+    ...    deviceName=uu dam hoa
+    ...    automationName=UiAutomator2
+    ...    app=com.monystudio.detectorhiddendevices
+    ${state}=    Get Application State    ${PACKAGE_NAME}
+    Should Be Equal As Strings    ${state}    RUNNING_IN_FOREGROUND
+    Capture Page Screenshot
+    Close Application
+
+Check Crash When Opening Features
+    Open Application    https://127.0.0.1:4723/wd/hub 
+    ...    platformName=Android
+    ...    deviceName=Uu dam hoa
+    ...    automationName=UiAutomators
+    ...    app=${APP}
+    
+    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@content-desc="Magnetic detection"]
+    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@content-desc="Camera IR detection"]
+    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@content-desc="WiFi detection"]
+    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@content-desc="Bluetooth detection"]
+    
+    ${state}=    Get Application State    ${PACKAGE_NAME}
+    Should Be Equal As Strings    ${state}    RUNNING_IN_FOREGROUND
+    Capture Page Screenshot
+    Close Application
+
+Check Crash When Opening Deep Scan
+    Open Application    ${REMOTE_URL}    
+    ...    platformName=${PLATFORM}
+    ...    deviceName=${DEVICE_NAME}
+    ...    automationName=${AUTOMATION_NAME}
+    ...    app=${APP}
+    
+    Click Element    xpath=//android.widget.TextView[@content-desc="All Device Detector"]
+    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Deep Scan"]
+    Click Element    xpath=//android.widget.TextView[@text="Deep Scan"]
+    
+    Sleep    5s  # Wait to check if app crashes
+    ${state}=    Get Application State    ${PACKAGE_NAME}
+    Should Be Equal As Strings    ${state}    RUNNING_IN_FOREGROUND
+    Capture Page Screenshot
+    Close Application
+
+Check App Logs For Crashes
+    Open Application    ${REMOTE_URL}    
+    ...    platformName= Android
+    ...    deviceName=${DEVICE_NAME}
+    ...    automationName=${AUTOMATION_NAME}
+    ...    app=${APP}
+    
+    ${logs}=    Get Logs    logcat
+    Log    ${logs}
+    ${crash_found}=    Run Keyword And Return Status    Should Contain    ${logs}    "FATAL EXCEPTION"
+    Run Keyword If    ${crash_found}    Fail    "App crashed! Check logs."
+    
+    Close Application

@@ -1,53 +1,36 @@
 *** Settings ***
 Library           AppiumLibrary
-Library           Collections
-Library           OperatingSystem
 
 *** Variables ***
-${REMOTE_URL}           http://127.0.0.1:4723/wd/hub
-${APP}                  /Users/anhtruong/Downloads/app-31.apk
-${PLATFORM}             Android
-${DEVICE_NAME}          R9HR201CADJ
-${AUTOMATION_NAME}      UiAutomator2
-${PACKAGE_NAME}         com.monystudio.detectorhiddendevices
-${NEW_COMMAND_TIMEOUT}  2500
-
-*** Keywords ***
-Setup Android Test
-    Open Application    ${REMOTE_URL}
-    ...    platformName=${PLATFORM}
-    ...    deviceName=${DEVICE_NAME}
-    ...    automationName=${AUTOMATION_NAME}
-    ...    app=${APP}
-    ...    newCommandTimeout=${NEW_COMMAND_TIMEOUT}
-    ...    noReset=true
-    ...    skipDeviceInitialization=true
-    ...    skipServerInstallation=true
-    Wait Until Page Contains Element    xpath=//android.widget.TextView    timeout=20
-    Log    App launched successfully
-    Capture Page Screenshot
+${REMOTE_URL}       http://127.0.0.1:4723/wd/hub
+${PLATFORM_NAME}    Android
+${PLATFORM_VERSION} 11
+${DEVICE_NAME}      BGB00005932
+${APP_PACKAGE}      com.qrcodescanner.android
+${APP_ACTIVITY}     com.qrcodescanner.android.MainActivity
 
 *** Test Cases ***
-Check App Launch Successfully
-    Setup Android Test
-    Element Should Be Visible    xpath=//android.widget.TextView
-    Close Application
-
-Check Crash When Opening Features
-    Setup Android Test
-    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@text="Magnetic Detection"]
-    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@text="Camera IR Detection"]
-    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@text="WiFi Detection"]
-    Run Keyword And Continue On Failure    Click Element    xpath=//android.widget.TextView[@text="Bluetooth Detection"]
+Test QR Code Scanner App
+    Open Application    ${REMOTE_URL}
+    ...    platformName=${PLATFORM_NAME}
+    ...    platformVersion=${PLATFORM_VERSION}
+    ...    deviceName=${DEVICE_NAME}
+    ...    appPackage=${APP_PACKAGE}
+    ...    appActivity=${APP_ACTIVITY}
+    Wait Unitl Page Contains QR code Scanner timeout=20s
     Capture Page Screenshot
     Close Application
 
-Check Crash When Opening Deep Scan
-    Setup Android Test
-    Click Element    xpath=//android.widget.TextView[@text="All Device Detector"]
-    Wait Until Element Is Visible    xpath=//android.widget.TextView[@text="Deep Scan"]
-    Click Element    xpath=//android.widget.TextView[@text="Deep Scan"]
-    Sleep    5s
-    Capture Page Screenshot
+ 
+    # Kiểm tra ứng dụng có mở thành công không
+    Run Keyword And Continue On Failure    Wait Until Page Contains Element    //*[@text="Scan QR Code"]    timeout=5s
+
+    # Thử bấm nút quét mã QR automation té 
+    Click Element    //*[@text="Scan QR Code"]
+    Sleep    3s
+
+    # Kiểm tra xem có bị crash không
+    Run Keyword And Continue On Failure    Page Should Contain Element    //*[@text="Scanning..."]
+
     Close Application
  

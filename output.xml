@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on darwin)" generated="2025-03-25T15:18:43.876626" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Test" source="/Users/anhtruong/robot_mobile_test/robot_mobile_test/tests/login_test.robot">
+<test id="s1-t1" name="Kiểm tra mở app thành công" line="15">
+<kw name="Open Application" owner="AppiumLibrary" type="SETUP">
+<msg time="2025-03-25T15:18:43.988439" level="FAIL">Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.</msg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.988380" elapsed="0.000087">Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.</status>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<msg time="2025-03-25T15:18:43.988611" level="TRACE">Arguments: [  ]</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-03-25T15:18:43.988698" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-03-25T15:18:43.988874" level="TRACE">Return: None</msg>
+<msg time="2025-03-25T15:18:43.988903" level="FAIL">No application is open</msg>
+<msg time="2025-03-25T15:18:43.991139" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 23, in close_application
+    self._debug('Closing application with session id %s' % self._current_application().session_id)
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 21, in _run_on_failure_decorator
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_screenshot.py", line 34, in capture_page_screenshot
+    base64_screenshot = self._current_application().get_screenshot_as_base64()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.988676" elapsed="0.002487">No application is open</status>
+</kw>
+<msg time="2025-03-25T15:18:43.991543" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-03-25T15:18:43.991609" level="TRACE">Return: None</msg>
+<msg time="2025-03-25T15:18:43.991633" level="FAIL">No application is open</msg>
+<msg time="2025-03-25T15:18:43.991853" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 21, in _run_on_failure_decorator
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 23, in close_application
+    self._debug('Closing application with session id %s' % self._current_application().session_id)
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open</msg>
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.988585" elapsed="0.003286">No application is open</status>
+</kw>
+<status status="FAIL" start="2025-03-25T15:18:43.987892" elapsed="0.004025">Setup failed:
+Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.
+
+Also teardown failed:
+No application is open</status>
+</test>
+<test id="s1-t2" name="Mở màn hình Hidden Devices" line="19">
+<kw name="Open Application" owner="AppiumLibrary" type="SETUP">
+<msg time="2025-03-25T15:18:43.992199" level="FAIL">Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.</msg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.992164" elapsed="0.000053">Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.</status>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<msg time="2025-03-25T15:18:43.992307" level="TRACE">Arguments: [  ]</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-03-25T15:18:43.992380" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-03-25T15:18:43.992413" level="TRACE">Return: None</msg>
+<msg time="2025-03-25T15:18:43.992432" level="FAIL">No application is open</msg>
+<msg time="2025-03-25T15:18:43.992755" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 23, in close_application
+    self._debug('Closing application with session id %s' % self._current_application().session_id)
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 21, in _run_on_failure_decorator
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_screenshot.py", line 34, in capture_page_screenshot
+    base64_screenshot = self._current_application().get_screenshot_as_base64()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.992361" elapsed="0.000440">No application is open</status>
+</kw>
+<msg time="2025-03-25T15:18:43.993179" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-03-25T15:18:43.993230" level="TRACE">Return: None</msg>
+<msg time="2025-03-25T15:18:43.993250" level="FAIL">No application is open</msg>
+<msg time="2025-03-25T15:18:43.993522" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 21, in _run_on_failure_decorator
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 23, in close_application
+    self._debug('Closing application with session id %s' % self._current_application().session_id)
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open</msg>
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.992287" elapsed="0.001261">No application is open</status>
+</kw>
+<status status="FAIL" start="2025-03-25T15:18:43.992015" elapsed="0.001580">Setup failed:
+Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.
+
+Also teardown failed:
+No application is open</status>
+</test>
+<test id="s1-t3" name="Phát hiện camera ẩn" line="24">
+<kw name="Open Application" owner="AppiumLibrary" type="SETUP">
+<msg time="2025-03-25T15:18:43.994133" level="FAIL">Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.</msg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.994083" elapsed="0.000069">Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.</status>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary" type="TEARDOWN">
+<msg time="2025-03-25T15:18:43.994318" level="TRACE">Arguments: [  ]</msg>
+<kw name="Capture Page Screenshot" owner="AppiumLibrary">
+<msg time="2025-03-25T15:18:43.994402" level="TRACE">Arguments: [  ]</msg>
+<msg time="2025-03-25T15:18:43.994481" level="TRACE">Return: None</msg>
+<msg time="2025-03-25T15:18:43.994512" level="FAIL">No application is open</msg>
+<msg time="2025-03-25T15:18:43.994919" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 23, in close_application
+    self._debug('Closing application with session id %s' % self._current_application().session_id)
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 21, in _run_on_failure_decorator
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_screenshot.py", line 34, in capture_page_screenshot
+    base64_screenshot = self._current_application().get_screenshot_as_base64()
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open</msg>
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.994381" elapsed="0.000564">No application is open</status>
+</kw>
+<msg time="2025-03-25T15:18:43.995346" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-03-25T15:18:43.995408" level="TRACE">Return: None</msg>
+<msg time="2025-03-25T15:18:43.995432" level="FAIL">No application is open</msg>
+<msg time="2025-03-25T15:18:43.995644" level="DEBUG">Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 21, in _run_on_failure_decorator
+    raise err
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/keywordgroup.py", line 16, in _run_on_failure_decorator
+    return method(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 23, in close_application
+    self._debug('Closing application with session id %s' % self._current_application().session_id)
+                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/AppiumLibrary/keywords/_applicationmanagement.py", line 469, in _current_application
+    raise RuntimeError('No application is open')
+RuntimeError: No application is open</msg>
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="FAIL" start="2025-03-25T15:18:43.994294" elapsed="0.001369">No application is open</status>
+</kw>
+<status status="FAIL" start="2025-03-25T15:18:43.993872" elapsed="0.001857">Setup failed:
+Keyword 'AppiumLibrary.Open Application' expected 1 to 2 non-named arguments, got 0.
+
+Also teardown failed:
+No application is open</status>
+</test>
+<status status="FAIL" start="2025-03-25T15:18:43.877523" elapsed="0.118389"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Test" id="s1" pass="0" fail="3" skip="0">Login Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-03-25T15:18:43.987608" level="WARN">Imported resource file '/Users/anhtruong/robot_mobile_test/robot_mobile_test/resources/keywords.robot' is empty.</msg>
+<msg time="2025-03-25T15:18:43.991543" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-03-25T15:18:43.993179" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg time="2025-03-25T15:18:43.995346" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>
